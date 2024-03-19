@@ -78,16 +78,37 @@ return {
       vim.cmd.colorscheme "catppuccin"
     end,
   },
-  {
-    'stevearc/oil.nvim',
-    opts = {},
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
+  -- {
+  --   'stevearc/oil.nvim',
+  --   opts = {},
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- },
   {
     'christoomey/vim-tmux-navigator',
     lazy = false,
   },
-
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    lazy = false,
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},  -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.dirman"] = {      -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                work = "~/Documents/notes/work",
+                home = "~/Documents/notes/home",
+              },
+            },
+          },
+        },
+      }
+    end,
+  },
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',

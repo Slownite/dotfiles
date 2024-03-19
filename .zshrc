@@ -101,7 +101,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias open="xdg-open"
 alias kde-restart="kquitapp5 plasmashell && kstart5 plasmashell"
-alias neovide="~/Documents/neovide.AppImage"
 alias cat="bat"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
