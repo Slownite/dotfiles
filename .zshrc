@@ -113,3 +113,7 @@ eval "$(atuin init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 if [ -e /home/sam/.nix-profile/etc/profile.d/nix.sh ]; then . /home/sam/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# Created by `pipx` on 2024-03-20 20:04:28
+export PATH="$PATH:/home/sam/.local/bin"
+eval "$(register-python-argcomplete pipx)"
