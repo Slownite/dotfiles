@@ -102,6 +102,7 @@ source $ZSH/oh-my-zsh.sh
 alias open="xdg-open"
 alias kde-restart="kquitapp5 plasmashell && kstart5 plasmashell"
 alias cat="bat"
+alias emacs="emacsclient -c -a 'emacs'"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
@@ -112,8 +113,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(atuin init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
-if [ -e /home/sam/.nix-profile/etc/profile.d/nix.sh ]; then . /home/sam/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # Created by `pipx` on 2024-03-20 20:04:28
-export PATH="$PATH:/home/sam/.local/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin"
 eval "$(register-python-argcomplete pipx)"
