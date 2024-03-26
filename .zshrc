@@ -69,8 +69,11 @@ ZSH_CUSTOM=~/dotfiles/.oh-my-zsh/custom/plugins
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# Enable vi mode
+bindkey -v
 plugins=(git
-    zsh-autosuggestions)
+        zsh-autosuggestions
+        vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,11 +85,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -99,8 +102,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias open="xdg-open"
-alias kde-restart="kquitapp5 plasmashell && kstart5 plasmashell"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+# linux command only
+    alias open="xdg-open"
+fi
+
 alias cat="bat"
 alias emacs="emacsclient -c -a 'emacs'"
 fpath=(~/.zsh/completion $fpath)
