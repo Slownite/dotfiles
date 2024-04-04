@@ -125,3 +125,11 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 # Created by `pipx` on 2024-03-20 20:04:28
 export PATH="$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin"
 eval "$(register-python-argcomplete pipx)"
+
+# pnpm
+export PNPM_HOME="/home/sam/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
