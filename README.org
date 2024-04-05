@@ -1,0 +1,8 @@
+#+title: Readme
+* Install
+run the setup python script
+#+begin_src bash
+cd dotfiles
+chmod +x setup.py
+./setup.py
+#+end_src

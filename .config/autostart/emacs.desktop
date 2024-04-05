@@ -1,0 +1,19 @@
+[Desktop Entry]
+Categories=Development;TextEditor;
+Comment[en_US]=Edit text
+Comment=Edit text
+Exec=/usr/bin/emacs --daemon%F
+GenericName[en_US]=Text Editor
+GenericName=Text Editor
+Icon=emacs
+MimeType=text/x-tex;text/x-pascal;text/x-moc;text/x-makefile;text/x-java;text/x-csrc;text/x-csrc;text/x-chdr;text/x-c++src;text/x-c++hdr;text/tcl;text/plain;application/x-shellscript;
+Name[en_US]=Emacs Deamon
+Name=Emacs Deamon
+Path=
+StartupNotify=true
+StartupWMClass=Emacs
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
