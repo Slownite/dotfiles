@@ -1,0 +1,25 @@
+# Use the official Ubuntu image as the base
+FROM ubuntu:latest
+
+# Avoid prompts from apt
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Update and install dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    stow \
+    ssh \
+    zsh \
+    powerline\
+    emacs\
+    && rm -rf /var/lib/apt/lists/*
+
+# Create a directory for the dotfiles that imitates real condition
+WORKDIR /root/dotfiles
+
+# Add dotfiles to the docker dotfiles directory
+COPY . .
+
+# Run your script when the container starts
+CMD ["python3", "setup.py", "--all", "-e", "me@email.com"]
