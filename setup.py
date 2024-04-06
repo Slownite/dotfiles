@@ -146,7 +146,6 @@ def generate_ssh_key(email_address):
     if not os.path.exists(ssh_dir):
         os.makedirs(ssh_dir)
         print(f"Created directory: {ssh_dir}")
-    print(email_address)
     if email_address is None:
         email = input("email: ")
     else:
