@@ -1,8 +1,15 @@
-#+title: Readme
+#+title: Dotfiles
+
 * Install
-run the setup python script
+To install these config file make sure you have all the dependancy required and do:
 #+begin_src bash
 cd dotfiles
 chmod +x setup.py
 ./setup.py
 #+end_src
+* Development
+For development purposes use the test.sh script like this:
+#+begin_src bash
+./test.sh
+#+end_src
+make sure to have docker installed and setup the correct group to avoid using sudo with it.
