@@ -73,7 +73,6 @@ ZSH_CUSTOM=~/dotfiles/.oh-my-zsh/custom/plugins
 # Enable vi mode
 bindkey -v
 plugins=(git
-        zsh-autosuggestions
         vi-mode)
 
 source $ZSH/oh-my-zsh.sh
@@ -87,10 +86,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
+export PATH="$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -112,9 +112,12 @@ alias cat="bat"
 alias emacs="emacsclient -c -a 'emacs'"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
+# Homebrew
+if type brew >/dev/null; then
+  #Execute only if homebrew is istall
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 #FZF config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(atuin init zsh)"
@@ -123,13 +126,16 @@ eval "$(zoxide init --cmd cd zsh)"
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # Created by `pipx` on 2024-03-20 20:04:28
-export PATH="$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin"
-eval "$(register-python-argcomplete pipx)"
+if type pipx >/dev/null; then
+  eval "$(register-python-argcomplete pipx)"
+fi
 
 # pnpm
-export PNPM_HOME="/home/sam/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+if type pnpm >/dev/null 2>&1; then
+  export PNPM_HOME="$HOME/.local/share/pnpm"
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
+fi
 # pnpm end
