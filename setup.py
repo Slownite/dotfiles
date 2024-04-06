@@ -132,11 +132,12 @@ def stow(dotfiles):
     runcommand("stow .", cwd=dotfiles)
 
 
-def generate_ssh_key(email_address):
+def generate_ssh_key(email_address, key_name="id_ed25519"):
     """
     Generates an SSH key pair using the Ed25519 algorithm and saves it to the .ssh directory.
 
     Args:
+    email_address (str): The email address for the SSH key.
     key_name (str): The name of the SSH key file. Default is 'id_ed25519'.
     """
     # Define the path to the .ssh directory
@@ -146,13 +147,17 @@ def generate_ssh_key(email_address):
     if not os.path.exists(ssh_dir):
         os.makedirs(ssh_dir)
         print(f"Created directory: {ssh_dir}")
-    if email_address is None:
-        email = input("email: ")
-    else:
-        email = email_address
+
+    # Define the full path for the SSH key file
+    key_path = os.path.join(ssh_dir, key_name)
+
+    # Check if the email_address is provided
+    if email_address is None or email_address.strip() == "":
+        email_address = input("email: ")
+
     # Generate the SSH key pair using Ed25519
-    command = f'ssh-keygen -t ed25519 -f -N -C "{email}"'
-    runcommand(command)
+    command = f'ssh-keygen -t ed25519 -f {key_path} -N "" -C "{email_address}"'
+    subprocess.run(command, shell=True, check=True)
 
 
 def parse_arguments():
