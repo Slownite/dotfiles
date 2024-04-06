@@ -113,7 +113,7 @@ alias emacs="emacsclient -c -a 'emacs'"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 # Homebrew
-if type brew >/dev/null; then
+if type brew >/dev/null 2>&1; then
   #Execute only if homebrew is istall
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -125,10 +125,6 @@ eval "$(zoxide init --cmd cd zsh)"
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-# Created by `pipx` on 2024-03-20 20:04:28
-if type pipx >/dev/null; then
-  eval "$(register-python-argcomplete pipx)"
-fi
 
 # pnpm
 if type pnpm >/dev/null 2>&1; then
