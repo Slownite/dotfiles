@@ -2,9 +2,11 @@
 import os
 import shutil
 import subprocess
+import argparse
 
 
 def get_paths():
+    """Get the home path and dotfile path"""
     home = os.getenv("HOME")
     dotfiles = os.getcwd()
     if home is None:
@@ -15,12 +17,15 @@ def get_paths():
 
 
 def goto(path):
+    """cd to a directory"""
     if os.path.exists(path):
         os.chdir(path)
-    raise FileNotFoundError(f"directory {path} not found")
+    else:
+        raise FileNotFoundError(f"directory {path} not found")
 
 
 def removefile(file_path):
+    """remove file"""
     if os.path.exists(file_path):
         os.remove(file_path)
         print(f"The file {file_path} has been deleted.")
@@ -58,12 +63,19 @@ def runcommand(command, cwd=None):
         print(f"An error occurred while executing the command: {e}")
 
 
+def askpermission(step_name):
+    """ask the permission to execute a task"""
+    return input(f"Do you want to execute {step_name}? (y/n) ").lower().startswith("y")
+
+
 def oh_my_zsh():
+    """install oh-my-zsh"""
     command = 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
     runcommand(command)
 
 
 def doom_emacs():
+    """install dom emacs"""
     # Define the commands
     git_clone_command = (
         "git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs"
@@ -89,6 +101,7 @@ def doom_emacs():
 
 
 def zsh_config(home):
+    """Setup zsh and oh my zsh"""
     goto(home)
     if os.path.exists(".oh-my-zsh"):
         print(
@@ -102,6 +115,7 @@ def zsh_config(home):
 
 
 def emacs_config(home):
+    """setup doom emacs"""
     goto(home)
     if os.path.exists(f".config/emacs"):
         print(
@@ -113,10 +127,12 @@ def emacs_config(home):
 
 
 def stow(dotfiles):
+    """stow my dotfiles"""
+    goto(dotfiles)
     runcommand("stow .", cwd=dotfiles)
 
 
-def generate_ssh_key():
+def generate_ssh_key(email_address):
     """
     Generates an SSH key pair using the Ed25519 algorithm and saves it to the .ssh directory.
 
@@ -130,17 +146,53 @@ def generate_ssh_key():
     if not os.path.exists(ssh_dir):
         os.makedirs(ssh_dir)
         print(f"Created directory: {ssh_dir}")
-
+    print(email_address)
+    if email_address is None:
+        email = input("email: ")
+    else:
+        email = email_address
     # Generate the SSH key pair using Ed25519
-    email = input("email: ")
-    command = ["ssh-keygen", "-t", "ed25519", "-C", email]
+    command = f'ssh-keygen -t ed25519 -f -N -C "{email}"'
     runcommand(command)
+
+
+def parse_arguments():
+    """parse the command arguments"""
+    parser = argparse.ArgumentParser(description="setup script for Slownite dotfiles.")
+    parser.add_argument(
+        "--all", help="Execute all step without asking", action="store_true"
+    )
+    parser.add_argument(
+        "-e",
+        "--email",
+        help="Fill the Email address in ssh-key",
+        type=str,
+        default=None,
+    )
+    args = parser.parse_args()
+    return args
 
 
 def main():
     home, dotfiles = get_paths()
-    zsh_config(home)
-    emacs_config(home)
+    args = parse_arguments()
+    print(args.email)
+    print("Start installation of dotfiles")
+    if args.all:
+        zsh_config(home)
+        emacs_config(home)
+        stow(dotfiles)
+        generate_ssh_key(args.email)
+    else:
+        if askpermission("zsh setup"):
+            zsh_config(home)
+        if askpermission("emacs setup"):
+            emacs_config(home)
+        if askpermission("the stow step"):
+            stow(dotfiles)
+        if askpermission("ssh key setup"):
+            generate_ssh_key(args.email)
+    print("installation finished!")
 
 
 if __name__ == "__main__":
