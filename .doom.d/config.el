@@ -75,3 +75,12 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+;; ~/.doom.d/config.el
+(use-package! pyvenv
+  :init
+  ;; Activate Pyvenv mode which manages Python virtual environments
+  (add-hook 'python-mode-hook #'pyvenv-mode)
+  ;; Automatically activate a virtual environment if one exists
+  :config
+  (when (file-exists-p (expand-file-name "venv" (doom-project-root)))
+    (pyvenv-activate (expand-file-name "venv" (doom-project-root)))))
