@@ -113,7 +113,7 @@ alias emacs="emacsclient -c -a 'emacs'"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 # Homebrew
-if type brew >/dev/null 2>&1; then
+if type /home/linuxbrew/.linuxbrew/bin/brew >/dev/null 2>&1; then
   #Execute only if homebrew is istall
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
