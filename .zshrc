@@ -76,6 +76,19 @@ plugins=(git
         vi-mode)
 
 source $ZSH/oh-my-zsh.sh
+# Setup Nix environment variables and paths manually
+export NIX_USER_PROFILE_DIR="/nix/var/nix/profiles/per-user/$USER"
+export NIX_PROFILES="/nix/var/nix/profiles/default $HOME/.nix-profile"
+
+# Add Nix store to PATH
+export PATH="/nix/var/nix/profiles/default/bin:/nix/store:$HOME/.nix-profile/bin:$PATH"
+
+# Setup MANPATH for manual pages installed via Nix
+export MANPATH="/nix/var/nix/profiles/default/share/man:$HOME/.nix-profile/share/man:$MANPATH"
+
+# Function to load Zsh completions from Nix
+fpath+=( ~/.nix-profile/share/zsh/site-functions )
+autoload -U compinit && compinit
 
 # User configuration
 
@@ -123,7 +136,6 @@ fi
 eval "$(atuin init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 
 # pnpm
@@ -133,3 +145,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+fastfetch

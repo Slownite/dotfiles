@@ -2,7 +2,7 @@
 Categories=Development;TextEditor;
 Comment[en_US]=Edit text
 Comment=Edit text
-Exec=/usr/bin/emacs --daemon
+Exec=/home/sam/.nix-profile/bin/emacs --daemon
 GenericName[en_US]=Text Editor
 GenericName=Text Editor
 Icon=emacs
