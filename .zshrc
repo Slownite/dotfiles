@@ -122,7 +122,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 fi
 
 alias cat="bat"
-alias emacs="emacsclient -c -a 'emacs'"
+alias emacs="emacsclient -c -a 'emacs29.3&'&"
 alias sdocker="sudo docker"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
@@ -134,7 +134,8 @@ if type /home/linuxbrew/.linuxbrew/bin/brew >/dev/null 2>&1; then
 fi
 #FZF config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(atuin init zsh)"
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 eval "$(zoxide init --cmd cd zsh)"
 
 
