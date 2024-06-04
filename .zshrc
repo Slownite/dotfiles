@@ -123,6 +123,7 @@ fi
 
 alias cat="bat"
 alias emacs="emacsclient -c -a 'emacs'"
+alias sdocker="sudo docker"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 # Homebrew
