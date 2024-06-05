@@ -122,7 +122,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 fi
 
 alias cat="bat"
-alias emacs="emacsclient -c -a 'emacs29.3&'&"
+alias emacs="emacsclient -c -a 'emacs-29.3'&"
 alias sdocker="sudo docker"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
