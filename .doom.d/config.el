@@ -32,7 +32,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord-aurora)
+(setq doom-theme 'catppuccin)
+(setq catppuccin-flavor 'macchiato)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -78,3 +79,9 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(after! lsp-python
+  (setq lsp-pyls-server-command (concat pyvenv-virtual-env "bin/pyls"))
+  (add-hook 'lsp-after-initialize-hook
+            (lambda ()
+              (when (bound-and-true-p pyvenv-virtual-env)
+                (lsp-restart-workspace)))))
