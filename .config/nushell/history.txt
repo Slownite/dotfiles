@@ -1,0 +1,107 @@
+nvim
+zsh
+$env.PATH
+which nu
+bash
+nvim
+$env.PATH
+bash
+nvim
+bash
+nvim
+cd .config/home-manager/
+nvim home.nix
+home-manager switch
+home-manager build
+nix
+home-manager
+bash
+nvim .
+cd ..
+cd Doc
+cd Documents/
+ls
+cd perso
+ls
+cd project
+ls
+cd Download
+cd Downloads/
+ls
+sudo dpkg -i tabby-1.0.223-linux-x64.deb
+cd .config/home-manager/user/shell/nushell.nix
+cd .config/home-manager/user/shell/
+cd ..
+zellij
+tmux
+nvim .
+home-manager switch
+alacritty 
+nvim ho;e.nix
+nvim home.nix
+home-manager switch
+cd ho
+nvim home.nix
+home-manager switch
+bash
+nvim home.nix
+home-manager switch
+nix-env -iA nixpkgs.nix<\n>
+nvim
+home-manager uninstall<\n>
+rm -rf ~/.config/home-manager<\n>rm -rf ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+cd ..
+rm -rf ~/.config/home-manager<\n>rm -rf ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+sudo rm -rf ~/.config/home-manager<\n>rm -rf ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+nvim ~/.profile
+nix-env --list-generations<\n>nix-env --delete-generations old<\n>
+home-manager uninstall<\n>
+rm -rf ~/.config/home-manager<\n>rm -rf ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+nix-env --list-generations<\n>nix-env --delete-generations old<\n>
+bash
+cd dotfiles/
+brew install nvim
+vim .config/nushell/env.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+vim .config/nushell/env.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+vim .config/nushell/env.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+vim ~/my-nixos-systems/user/shell/nushell.nix
+vim .config/nushell/env.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+vim .config/nushell/config.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+brew
+vim .config/nushell/env.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+vim .config/starship.toml
+ls
+vim .config/nushell/config.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+vim .config/nushell/config.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+nu --version
+vim .config/nushell/config.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+ls
+emacs
+brew install nvim
+nvim .
+brew install cartapace<\n>
+cd .config/nushell/
+mkdir completions
+carapace _carapace nushell | save --force ~/.config/nushell/completions/carapace.nu<\n>
+source ~/.config/nushell/env.nu<\n>
+carapace git
+carapace bridge nushell<\n>
+source ~/.config/nushell/env.nu<\n>
+nvim env.nu
+cd dotfiles/
+mkdir -p ~/.cache/carapace<\n>
+mkdir .cache/carapace
+carapace _carapace nushell | save --force ~/.cache/carapace/init.nu<\n>
+stow .
+source ~/.cache/carapace/init.nu<\n>
+nvim .config/nushell/env.nu 
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>

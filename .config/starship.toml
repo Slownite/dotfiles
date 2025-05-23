@@ -1,0 +1,27 @@
+# ~/.config/starship.toml
+
+# Use a minimal prompt layout with directory and git info
+format = """
+$username$hostname$directory$git_branch$git_state$git_status$character
+"""
+
+# Customize prompt symbols
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
+vicmd_symbol = "[V](bold yellow)"
+
+# Show username only if not the default user
+[username]
+show_always = false
+
+[directory]
+style = "blue"
+truncation_length = 3
+
+[git_branch]
+symbol = " "
+style = "purple"
+
+[git_status]
+style = "red"
