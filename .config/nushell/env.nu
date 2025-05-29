@@ -12,5 +12,7 @@ alias ll = ls -l
 alias la = ls -a
 alias .. = cd ..
 alias k = kubectl
+alias z = zellij -l welcome options --default-shell nu
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+fastfetch
 

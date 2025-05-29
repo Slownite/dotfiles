@@ -105,3 +105,81 @@ stow .
 source ~/.cache/carapace/init.nu<\n>
 nvim .config/nushell/env.nu 
 source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+git add .
+git commit -m "support nushell"
+git push
+brew install ghostty
+brew install fastfetch
+fasfetch
+fastfetch 
+nvim .config/nushell/env.nu 
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+sudo chmod 400 hermes.pem
+zellij
+brew install zellij
+nvim ~/.config/nushell/env.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+z
+zellij options --default-shell nu<\n>
+z
+nvim ~/.config/nushell/env.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+z
+nvim ~/.config/nushell/env.nu
+source ~/.config/nushell/env.nu<\n>source ~/.config/nushell/config.nu<\n>
+z
+ls
+cd Documents/perso/project/
+cd ~/.config/starship.toml
+nvim ~/.config/starship.toml
+starship preset pastel-powerline -o ~/.config/starship.toml<\n>
+ls
+mkdir hotstart
+cd hotstart/
+git init
+git branch -m main
+mkdir hotstart
+mkdir tests
+mkdir exqmples
+touch README.md pyproject.toml .gitignore
+cd hotstart/
+touch __init__.py cli.py config.py loader.py executor.py tokenizer.py utils.py
+ls
+cd ..
+ls
+nvim pyproject.toml
+wget https://raw.githubusercontent.com/Slownite/toxic-comment-bert-peft/refs/heads/main/flake.nix
+ls
+rm flake.nix.1
+nix develop
+git status
+git add .
+git commit -m "first commit "
+git config --global email "snfdiop@outlook.com"
+git config --global user.name "Samuel Diop"<\n>
+git config --global user.email "snfdiop@outlook.com"<\n>
+nix develop
+git status
+git add flake.lock
+git commit -m "lockfile for flake"
+git status
+git add pyproject.toml
+git commit -m " change package entry point in setuptool"
+git add LICENSE.md
+git commit -m "add  license"
+sudo apt install python3.11-venv
+nvim .
+cd .config/nvim/after/plugin/lsp.lua
+nvim .config/nvim/after/plugin/lsp.lua
+nix develop
+z
+git status
+git add README.md
+git commit -m "add readme"
+git status
+nix develop
+git status
+git add hotstart/config.py hotstart/utils.py
+git commit -m "add support for keymapper"
+cd dotfiles/
+git status
